@@ -1,3 +1,6 @@
 .env
-trading_bot.py
 trading_bot.log
+run.py
+app.py
+requirements.txt
+templates/
