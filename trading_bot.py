@@ -10,7 +10,7 @@ FLASK_SECRET_KEY ="e5f2003dad49d51652dd1417cc31015f"
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY')
+app.secret_key = FLASK_SECRET_KEY
 
 # Setup basic bot class
 class BasicBot:
@@ -55,7 +55,7 @@ class BasicBot:
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot with API keys
-bot = BasicBot(os.environ.get('API_KEY'), os.environ.get('API_SECRET'), testnet=True)
+bot = BasicBot(API_KEY, API_SECRET, testnet=True)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
