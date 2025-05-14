@@ -4,13 +4,9 @@ import os
 import logging
 import traceback
 
-API_KEY = "a7ffa8f101dd2c7e2570cf512b65c26bdfc73956610dcfaa52daf3069390df19"
-API_SECRET = "591f960be4009eb60b984fa867a6e097a0d52da6e4014530d628dddda36a6fa1"
-FLASK_SECRET_KEY ="e5f2003dad49d51652dd1417cc31015f"
-
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = FLASK_SECRET_KEY
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
 
 # Setup basic bot class
 class BasicBot:
@@ -55,7 +51,7 @@ class BasicBot:
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot with API keys
-bot = BasicBot(API_KEY, API_SECRET, testnet=True)
+bot = BasicBot(os.environ.get('API_KEY'), os.environ.get('API_SECRET'), testnet=True)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
