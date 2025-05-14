@@ -3,4 +3,6 @@ trading_bot.log
 run.py
 app.py
 requirements.txt
+bot.py
 templates/
+.gitignore
